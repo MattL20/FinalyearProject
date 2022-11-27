@@ -15,7 +15,7 @@ public class Boss : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     private void Start() {
-        Target = GameObject.FindGameObjectWithTag("Player").Transform;
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update() {
         if(Target){
@@ -25,7 +25,7 @@ public class Boss : MonoBehaviour
     }
     private void FixedUpdate() {
         if(Target){
-            rb.velocity
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
         }
     }
      public void LookAtPlayer(){
