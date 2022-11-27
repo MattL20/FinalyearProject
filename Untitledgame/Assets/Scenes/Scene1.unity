@@ -2519,7 +2519,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.010109499, y: 0.0034721494}
@@ -9707,6 +9707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1141609167}
   isFlipped: 1
+  speed: 3
 --- !u!61 &1968535947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9717,7 +9718,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0026675612, y: -0.01867278}
