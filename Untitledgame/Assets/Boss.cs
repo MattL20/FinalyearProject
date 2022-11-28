@@ -27,6 +27,7 @@ public class Boss : MonoBehaviour
         if(Target){
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
         }
+        LookAtPlayer();
     }
      public void LookAtPlayer(){
          Vector3 flipped = transform.localScale;
