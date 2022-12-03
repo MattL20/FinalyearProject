@@ -9,6 +9,7 @@ public class playermovement : MonoBehaviour
     public float MovementSpeed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
+    public bool canmove;
     public ContactFilter2D movementFilter;
     public float collisionOffset = 0.05f;
      public Transform player;
@@ -21,6 +22,7 @@ public class playermovement : MonoBehaviour
     Vector2 movementInput;
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        canmove = true;
 
     }
 
@@ -38,7 +40,7 @@ public class playermovement : MonoBehaviour
         //movement
         //
         
-        if(movementInput != Vector2.zero){
+        if(canmove && movementInput != Vector2.zero){
                 int count = rb.Cast(
                 movementInput,
                 movementFilter,

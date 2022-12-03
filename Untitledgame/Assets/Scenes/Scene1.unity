@@ -2478,6 +2478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1141609163}
+  rb: {fileID: 1141609165}
 --- !u!114 &1141609161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2570,6 +2571,7 @@ MonoBehaviour:
   MovementSpeed: 5
   rb: {fileID: 1141609165}
   animator: {fileID: 1141609163}
+  canmove: 0
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
