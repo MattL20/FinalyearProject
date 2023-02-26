@@ -21,9 +21,9 @@ public class EnemyMove : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
-     Vector2 target = new Vector2(player.position.x,player.position.y);
-     Vector2 newpos = Vector2.MoveTowards(rb.position, target, speed*Time.fixedDeltaTime);   
-     rb.MovePosition(newpos);
+     //Vector2 target = new Vector2(player.position.x,player.position.y);
+     //Vector2 newpos = Vector2.MoveTowards(rb.position, target, speed*Time.fixedDeltaTime);   
+     //rb.MovePosition(newpos);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

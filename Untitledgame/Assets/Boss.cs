@@ -7,7 +7,9 @@ public class Boss : MonoBehaviour
     public Transform player;
     public bool isFlipped = false;
     public float speed = 3f;
-    
+    public Transform[] waypoints;
+    private int waypointIndex = 0;
+
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
@@ -16,17 +18,19 @@ public class Boss : MonoBehaviour
     }
     private void Start() {
         Target = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.position = waypoints[waypointIndex].transform.position;
     }
     private void Update() {
-        if(Target){
-            Vector3 direction = (Target.position-transform.position).normalized;
-            moveDirection = direction;
-        }
+        //  if(Target){
+        //      Vector3 direction = (Target.position-transform.position).normalized;
+        //     moveDirection = direction;
+        // }
+        Move();
     }
     private void FixedUpdate() {
-        if(Target){
-            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
-        }
+       // if(Target){
+       //     rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
+       // }
         LookAtPlayer();
     }
      public void LookAtPlayer(){
@@ -46,6 +50,33 @@ public class Boss : MonoBehaviour
        // Debug.Log("True");
     }
      }
-    // Start is called before the first frame update
+     public void Move()
+        {
+            // If Enemy didn't reach last waypoint it can move
+            // If enemy reached last waypoint then it stops
+            if (waypointIndex <= waypoints.Length - 1)
+            {
+
+                // Move Enemy from current waypoint to the next one
+                // using MoveTowards method
+                transform.position = Vector2.MoveTowards(transform.position,
+                   waypoints[waypointIndex].transform.position,
+                   speed * Time.deltaTime);
+
+                // If Enemy reaches position of waypoint he walked towards
+                // then waypointIndex is increased by 1
+                // and Enemy starts to walk to the next waypoint
+                if (transform.position == waypoints[waypointIndex].transform.position)
+                {
+                waypointIndex += 1;
+                }
+            }
+        else
+        {
+            waypointIndex = 0;
+        }
+        }
     
+   
+
 }
