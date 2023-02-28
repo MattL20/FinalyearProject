@@ -10,6 +10,10 @@ public class Boss : MonoBehaviour
     public Transform[] waypoints;
     private int waypointIndex = 0;
 
+    private float _waitTime = 1f; // in seconds
+    private float _waitCounter = 0f;
+    private bool _waiting = false;
+
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
@@ -54,12 +58,33 @@ public class Boss : MonoBehaviour
         {
             // If Enemy didn't reach last waypoint it can move
             // If enemy reached last waypoint then it stops
-            if (waypointIndex <= waypoints.Length - 1)
+            if (_waiting)
+        {
+            _waitCounter += Time.deltaTime;
+            if (_waitCounter < _waitTime)
+                return;
+            _waiting = false;
+        }
+            Transform wp = waypoints[waypointIndex];
+            if (Vector3.Distance(transform.position, wp.position) < 0.1f)
             {
-
+                transform.position = wp.position;
+            _waitCounter = 0f;
+            _waiting = true;
                 // Move Enemy from current waypoint to the next one
                 // using MoveTowards method
-                transform.position = Vector2.MoveTowards(transform.position,
+                if(waypointIndex==waypoints.Length-1){
+                    waypointIndex = 0;
+                }
+                else{
+                    waypointIndex = (waypointIndex + 1);
+                }
+                
+               
+            }
+        else
+        {
+             transform.position = Vector2.MoveTowards(transform.position,
                    waypoints[waypointIndex].transform.position,
                    speed * Time.deltaTime);
 
@@ -70,10 +95,6 @@ public class Boss : MonoBehaviour
                 {
                 waypointIndex += 1;
                 }
-            }
-        else
-        {
-            waypointIndex = 0;
         }
         }
     
