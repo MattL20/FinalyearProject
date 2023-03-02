@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public NewPlayeractions controls;
     public Animator animator;
      private InputAction att;
+   // public Transform player;
 
     void Awake() {
         controls = new NewPlayeractions();
@@ -19,11 +20,14 @@ public class Attack : MonoBehaviour
        att.Enable(); 
        att.performed += Attacks;
 
+       
     }
     void OnDisable() {
        att.Disable();
+        Debug.Log(att);
     }
     void Attacks(InputAction.CallbackContext context){
         animator.SetTrigger("Attack");
+        
     }
 }

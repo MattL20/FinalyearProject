@@ -1,0 +1,1091 @@
+fileFormatVersion: 2
+guid: da9985935d71ba845a5e4025502bc323
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OCD monster_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf17f4bdc7b79149ba3b0c7b2184df8
+      internalID: -590425892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7658f55f77a27f48b9684d8fd9fd245
+      internalID: -570589497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa03a70697f296f4d9aec43414947e9a
+      internalID: -1773821374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a43752fe2861a46a69b350e3110ab0
+      internalID: -1823507013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877ad218bfa7ff34bbb543dc9217be0b
+      internalID: -2104784219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_5
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfdd9561571c4644aa38ddddd97d6a1
+      internalID: -1192664255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_6
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce1bce22a2cb454896e3ec30bce5571
+      internalID: 1372623783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_7
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04abf3df11ce6148b668a0e5967accb
+      internalID: -811725608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_8
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 204.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897c584d82efc374b81f5c1cb90358b9
+      internalID: 124424452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c95841db4e24b742bfe9ce0ecfe4b62
+      internalID: 1328190974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a49768495cc2b849af18158525db312
+      internalID: 336220230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_11
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d5254cf8a6dd04491e6d6f822696f5
+      internalID: -539640987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_12
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6266a6ee350a88142bb7b57aa547c86f
+      internalID: 1615115125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_13
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f94d2dcd4a3e8f468178d3ed8d26bd4
+      internalID: -2094760433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_14
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333b35c6fa09cd54a806ace91e07e626
+      internalID: 1752462411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b4282aceb797a43a74916febda74d4
+      internalID: -983974934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_16
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbd8613204605f48a7e4e953871a076
+      internalID: -1032509051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_17
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 153.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9702757ef41bbcf44ba31d47b7d230fb
+      internalID: 873836069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce77c6cd84aab84db26168a96402d2b
+      internalID: 866828518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_19
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb1293248d4f124e88e5983681ce5f8
+      internalID: 723061864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a2ef5931e3d2d41a151f3f55de538a
+      internalID: 1721978017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_21
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39de0e61730c3c439583c6d81140e32
+      internalID: -54566694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_22
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbc4be5b7350994da9aff9079f27c26
+      internalID: -106723531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_23
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4a394f807bbdd4aa04b81558ea3299
+      internalID: 1175802057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_24
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d4ad56ec85c72439a2faaea74571ff
+      internalID: 1542861268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_25
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f3927d1acf4b74ba669c11cd731879
+      internalID: -1488361230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_26
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 102.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce24711d0af5c948969d4e56968141d
+      internalID: -966986642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db199682528c09449bed3a3c1ed5f655
+      internalID: 1048557648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_28
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c423055dfebc6f04bbb5ce388a6169a9
+      internalID: 2070578196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_29
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aba5917f6ccda14a805b00b1ba4853d
+      internalID: -1460651203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_30
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1836990d934ed4dbac3aa1c143ea14
+      internalID: -227120650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_31
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec248c2c0ee06d40a1a00495c45b094
+      internalID: -41270269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_32
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b960494115f4bd43a5c46feefaa08f6
+      internalID: -1970653395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_33
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93753930430cbf48bf0157b569b9a64
+      internalID: 1857871526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_34
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 51.8
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7016e4e044e952c4b99e928ded0c8ee9
+      internalID: 2058454710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff850091af12a044bdbd383b189f9e8
+      internalID: 93217952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_36
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03b0b58a4506744e8792ed4d55666e6
+      internalID: 1361199518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_37
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf5d53f2d631254598f65f35cae5514
+      internalID: 1153817995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_38
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a79d8b49d9fb8947806dd389db12a34
+      internalID: -620814764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_39
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d74a8ddd0904a48be2b0221dcc5640
+      internalID: 2026771387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_40
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125fed43a20714d44a73e6e3c8cb29c1
+      internalID: 1791350143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_41
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f857d2e54b4d83488a41cc314bffa79
+      internalID: 1224446205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_42
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa354d9e6d56c504cbe6b34db48ff6d7
+      internalID: -629642189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OCD monster_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0.79999924
+        width: 56.88889
+        height: 51.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9ef99a5d7aaf24f9ba862a56b5bea3
+      internalID: -696486904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      OCD monster_29: -1460651203
+      OCD monster_11: -539640987
+      OCD monster_18: 866828518
+      OCD monster_21: -54566694
+      OCD monster_33: 1857871526
+      OCD monster_17: 873836069
+      OCD monster_6: 1372623783
+      OCD monster_4: -2104784219
+      OCD monster_15: -983974934
+      OCD monster_31: -41270269
+      OCD monster_19: 723061864
+      OCD monster_26: -966986642
+      OCD monster_5: -1192664255
+      OCD monster_25: -1488361230
+      OCD monster_40: 1791350143
+      OCD monster_28: 2070578196
+      OCD monster_34: 2058454710
+      OCD monster_16: -1032509051
+      OCD monster_42: -629642189
+      OCD monster_32: -1970653395
+      OCD monster_37: 1153817995
+      OCD monster_23: 1175802057
+      OCD monster_36: 1361199518
+      OCD monster_41: 1224446205
+      OCD monster_12: 1615115125
+      OCD monster_20: 1721978017
+      OCD monster_27: 1048557648
+      OCD monster_1: -570589497
+      OCD monster_13: -2094760433
+      OCD monster_2: -1773821374
+      OCD monster_14: 1752462411
+      OCD monster_39: 2026771387
+      OCD monster_22: -106723531
+      OCD monster_43: -696486904
+      OCD monster_9: 1328190974
+      OCD monster_38: -620814764
+      OCD monster_7: -811725608
+      OCD monster_30: -227120650
+      OCD monster_8: 124424452
+      OCD monster_10: 336220230
+      OCD monster_0: -590425892
+      OCD monster_3: -1823507013
+      OCD monster_35: 93217952
+      OCD monster_24: 1542861268
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

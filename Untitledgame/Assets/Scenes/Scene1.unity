@@ -14953,8 +14953,8 @@ BoxCollider2D:
   m_Offset: {x: 0.09813399, y: 0.042405557}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0.19428572, y: 0.41714287}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.34, y: 0.73}
     newSize: {x: 0.34, y: 0.73}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15096,7 +15096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141609159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.5, y: 17.3, z: 0}
+  m_LocalPosition: {x: -10.81, y: 18.56, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15367,7 +15367,7 @@ GameObject:
   - component: {fileID: 1968535947}
   m_Layer: 0
   m_Name: OCD_Monster
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15413,13 +15413,12 @@ SpriteRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2756599093331124441, guid: cd5a4091f1e848d418fe9ea4dc6e817f,
-    type: 3}
+  m_Sprite: {fileID: -590425892, guid: da9985935d71ba845a5e4025502bc323, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.27, y: 0.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -15450,7 +15449,7 @@ Animator:
   m_GameObject: {fileID: 1968535941}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f6cb5f8a6bec4121a0b8020c105850f, type: 2}
+  m_Controller: {fileID: 9100000, guid: ec66b24aea08b7d489ed858ae75ba263, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15494,7 +15493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1141609167}
-  isFlipped: 1
+  isFlipped: 0
   speed: 6
   waypoints:
   - {fileID: 151079155}
@@ -15521,6 +15520,8 @@ MonoBehaviour:
   - {fileID: 2031571337}
   - {fileID: 1698828698}
   - {fileID: 659401055}
+  animator: {fileID: 1968535944}
+  canMove: 0
 --- !u!61 &1968535947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15534,18 +15535,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0026675612, y: -0.13639605}
+  m_Offset: {x: -0.0026675463, y: -0.2736836}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.8752137, y: 0.7876923}
+    newSize: {x: 0.27, y: 0.42}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14383721, y: 0.100453734}
+  m_Size: {x: 0.38180178, y: 0.12791133}
   m_EdgeRadius: 0
 --- !u!1 &2006425163
 GameObject:

@@ -5,10 +5,12 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public Transform player;
-    public bool isFlipped = false;
+    public bool isFlipped = true;
     public float speed = 3f;
     public Transform[] waypoints;
     private int waypointIndex = 0;
+    public Animator animator;
+    public bool canMove = false;
 
     private float _waitTime = 1f; // in seconds
     private float _waitCounter = 0f;
@@ -29,7 +31,11 @@ public class Boss : MonoBehaviour
         //      Vector3 direction = (Target.position-transform.position).normalized;
         //     moveDirection = direction;
         // }
-        Move();
+        if (canMove)
+        {
+            Move();
+        }
+        
     }
     private void FixedUpdate() {
        // if(Target){
@@ -56,16 +62,18 @@ public class Boss : MonoBehaviour
      }
      public void Move()
         {
-            // If Enemy didn't reach last waypoint it can move
-            // If enemy reached last waypoint then it stops
-            if(waypointIndex == 2 || waypointIndex == 5 || waypointIndex == 8 || waypointIndex == 11 ||waypointIndex == 14 ||waypointIndex == 17 ||waypointIndex == 20 ||waypointIndex == 23)
+        // If Enemy didn't reach last waypoint it can move
+        // If enemy reached last waypoint then it stops
+        animator.SetBool("IsMoving", true);
+            if (waypointIndex == 2 || waypointIndex == 5 || waypointIndex == 8 || waypointIndex == 11 ||waypointIndex == 14 ||waypointIndex == 17 ||waypointIndex == 20 ||waypointIndex == 23)
             if (_waiting)
         {
-            _waitCounter += Time.deltaTime;
+                animator.SetBool("IsMoving", false);
+                _waitCounter += Time.deltaTime;
             if (_waitCounter < _waitTime)
                 return;
             _waiting = false;
-            Debug.Log(waypointIndex);
+           // Debug.Log(waypointIndex);
         }
             Transform wp = waypoints[waypointIndex];
             if (Vector3.Distance(transform.position, wp.position) < 0.1f)

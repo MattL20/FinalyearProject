@@ -13,7 +13,7 @@ public class playermovement : MonoBehaviour
     public float collisionOffset = 0.05f;
      public Transform player;
     public bool isFlipped = false;
-    int direction = 0;
+    //int direction = 0;
     
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     
@@ -29,7 +29,13 @@ public class playermovement : MonoBehaviour
        animator.SetFloat("Horizontal",movementInput.x);
         animator.SetFloat("Vertical",movementInput.y);
         animator.SetFloat("Speed",movementInput.sqrMagnitude);
-        animator.SetInteger("Direction", direction);
+        if (movementInput.x >= 0.1f || movementInput.x <= -0.1f || movementInput.y >= 0.1f || movementInput.y <= -0.1f)
+        {
+            animator.SetFloat("LastX", movementInput.x);
+            animator.SetFloat("LastY", movementInput.y);
+        }
+       
+
         //Debug.Log(movementInput.sqrMagnitude);
         //Debug.Log(direction);
     }
@@ -51,19 +57,7 @@ public class playermovement : MonoBehaviour
         }
         //test
         }
-        if(movementInput.x >=0.1f){
-            direction = 1;
-        }
-        if (movementInput.x <= -0.1f)
-        {
-            direction = 3;
-        }
-        if (movementInput.y >=0.1f){
-            direction = 2;
-        }
-        if(movementInput.y <=-0.1f){
-            direction = 0;
-        }
+       
         
    
 
