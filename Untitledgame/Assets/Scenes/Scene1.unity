@@ -15096,7 +15096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141609159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.81, y: 18.56, z: 0}
+  m_LocalPosition: {x: 11.74, y: 16.32, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15365,7 +15365,7 @@ GameObject:
   - component: {fileID: 1968535944}
   - component: {fileID: 1968535946}
   - component: {fileID: 1968535947}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: OCD_Monster
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -15432,7 +15432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968535941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.76, y: 18.44, z: 0}
+  m_LocalPosition: {x: -9.76, y: 18.44, z: 1}
   m_LocalScale: {x: 5, y: 5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15522,6 +15522,8 @@ MonoBehaviour:
   - {fileID: 659401055}
   animator: {fileID: 1968535944}
   canMove: 0
+  AgroRange: 6
+  AttRange: 4
 --- !u!61 &1968535947
 BoxCollider2D:
   m_ObjectHideFlags: 0
