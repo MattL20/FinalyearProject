@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour
 {
     public Transform player;
     public bool isFlipped = true;
-    public float speed = 3f;
+    public float speed = 9f;
     public Transform[] waypoints;
     private int waypointIndex = 0;
     public Animator animator;
@@ -40,42 +40,57 @@ public class Boss : MonoBehaviour
         //     moveDirection = direction;
         // }
         float dist = Vector2.Distance(transform.position,player.position);
-       
-        
-        if(dist<AgroRange&&!hasAttacked&&dist>AttRange){
-            Agro();
-        }
-        if(dist<AttRange&&!hasAttacked){
-            canMove = false;
-            StopAgro();
-            Attack(); 
-        }else if(hasAttacked){
-            hasAttacked = false;
-            canMove = true;
-            
-            //rb.velocity = new Vector2(waypoints[waypointIndex].position.x, waypoints[waypointIndex].position.y) * speed;
-           // Debug.Log("After attack "+ speed);
-        }
-        //Debug.Log("hasAttacked: " + hasAttacked);
-        //Debug.Log("canMove: " +canMove);
-        if (_waiting2)
+
+
+        if (dist < AgroRange && !hasAttacked)
         {
-               Debug.Log("Waiting");
-               
-                _waitCounter2 += Time.deltaTime;
-            if (_waitCounter2 < _waitTime2)
-                return;
-                speed = 6;
-            _waiting2 = false;
+            Agro();
+            if (dist < AttRange && !hasAttacked)
+            {
+                
+                // StopAgro();
+                Attack();
+                
+                
+                _waitCounter2 = 0f;
+                
+            }
+        }
+        else
+        {
+            speed = 9;
+        }
+         if (hasAttacked)
+        {
+
             
+
+            //rb.velocity = new Vector2(waypoints[waypointIndex].position.x, waypoints[waypointIndex].position.y) * speed;
+            // Debug.Log("After attack "+ speed);
+
+            //Debug.Log("hasAttacked: " + hasAttacked);
+            //Debug.Log("canMove: " +canMove);
+            if (_waiting2)
+            {
+                Debug.Log("HERE ");
+                Debug.Log("Wait Counter " + _waitCounter2);
+
+                _waitCounter2 += Time.deltaTime;
+                if (_waitCounter2 < _waitTime2)
+                    return;
+                speed = 9;
+                hasAttacked = false;
+                canMove = true;
+                _waiting2 = false;
+
+                Debug.Log("Done Waiting");
+            }
         }
         
         
         if (canMove)
         {
-
-            Move();
-            
+            Move();    
         }
         
     }
@@ -108,7 +123,7 @@ public class Boss : MonoBehaviour
      public void Move()
         {
             Flip();
-          //  Debug.Log("IsMoving");
+            Debug.Log("IsMoving");
         // If Enemy didn't reach last waypoint it can move
         // If enemy reached last waypoint then it stops
         animator.SetBool("IsMoving", true);
@@ -169,21 +184,28 @@ public class Boss : MonoBehaviour
         }
         }
         public void Agro(){
-            LookAtPlayer();
-             transform.position = Vector2.MoveTowards(transform.position,
-                   player.transform.position,
+         LookAtPlayer();
+        Debug.Log("In Agro");
+        animator.SetBool("IsMoving", true);
+        canMove = false;
+
+        transform.position = Vector2.MoveTowards(transform.position,
+                   player.position,
                    speed * Time.deltaTime);
 
         }
-        public void StopAgro(){
-            LookAtPlayer();
-            speed = 0;
-           // Debug.Log(rb.velocity);
-        }
-        public void Attack(){
-           // Debug.Log("Attacked");
+        //public void StopAgro(){
             //LookAtPlayer();
-            animator.SetTrigger("Attack");
+          //  speed = 0;
+           // Debug.Log(rb.velocity);
+      //  }
+        public void Attack(){
+        // Debug.Log("Attacked");
+        //LookAtPlayer();
+        
+        Debug.Log("In Attack");
+        speed = 0;
+    animator.SetTrigger("Attack");
             _waiting2 = true;
             hasAttacked = true;
         }

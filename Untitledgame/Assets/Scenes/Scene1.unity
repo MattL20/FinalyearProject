@@ -15523,7 +15523,7 @@ MonoBehaviour:
   animator: {fileID: 1968535944}
   canMove: 0
   AgroRange: 6
-  AttRange: 4
+  AttRange: 2
 --- !u!61 &1968535947
 BoxCollider2D:
   m_ObjectHideFlags: 0
