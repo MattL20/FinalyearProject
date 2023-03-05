@@ -7,7 +7,7 @@ public class SpawnDone : StateMachineBehaviour
     GameObject Boss;
     private float _waitTime = 1f; // in seconds
     private float _waitCounter = 0f;
-    private bool wait = true;
+   // private bool wait = true;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

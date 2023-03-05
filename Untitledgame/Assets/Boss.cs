@@ -6,23 +6,38 @@ public class Boss : MonoBehaviour
 {
     public Transform player;
     public bool isFlipped = true;
-    public float speed = 9f;
+    public float speed = 6f;
     public Transform[] waypoints;
     private int waypointIndex = 0;
     public Animator animator;
     public bool canMove = false;
     public float AgroRange = 5f;
     public float AttRange = 3f;
+    
 
     private float _waitTime = 1f; // in seconds
     private float _waitCounter = 0f;
     private bool _waiting = false;
 
-    private float _waitTime2 = 1.5f; // in seconds
+    private float _waitTime2 = 1f; // in seconds
     private float _waitCounter2 = 0f;
     private bool _waiting2 = false;
 
+    
+
     private bool hasAttacked = false;
+    private bool InAgro = false;
+
+    public int maxHealth = 100;
+    private int currentHealth;
+   
+
+    public Transform AttackPointRight;
+    public float attackRange = 0.5f;
+    public LayerMask playerLayer;
+    private Collider2D[] hitPlayer;
+
+
 
     Rigidbody2D rb;
     Transform Target;
@@ -31,16 +46,12 @@ public class Boss : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     private void Start() {
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         transform.position = waypoints[waypointIndex].transform.position;
+        currentHealth = maxHealth;
     }
     private void Update() {
-        //  if(Target){
-        //      Vector3 direction = (Target.position-transform.position).normalized;
-        //     moveDirection = direction;
-        // }
         float dist = Vector2.Distance(transform.position,player.position);
-
 
         if (dist < AgroRange && !hasAttacked)
         {
@@ -49,59 +60,44 @@ public class Boss : MonoBehaviour
             {
                 
                 // StopAgro();
-                Attack();
+               Attack();
                 
                 
                 _waitCounter2 = 0f;
                 
             }
         }
-        else
+        if(dist > AgroRange && InAgro)
         {
-            speed = 9;
+            speed = 6;
+            Move();
         }
          if (hasAttacked)
         {
-
-            
-
-            //rb.velocity = new Vector2(waypoints[waypointIndex].position.x, waypoints[waypointIndex].position.y) * speed;
-            // Debug.Log("After attack "+ speed);
-
-            //Debug.Log("hasAttacked: " + hasAttacked);
-            //Debug.Log("canMove: " +canMove);
+ 
             if (_waiting2)
             {
-                Debug.Log("HERE ");
-                Debug.Log("Wait Counter " + _waitCounter2);
+               // Debug.Log("HERE ");
+               // Debug.Log("Wait Counter " + _waitCounter2);
 
                 _waitCounter2 += Time.deltaTime;
                 if (_waitCounter2 < _waitTime2)
                     return;
-                speed = 9;
+                speed = 6;
                 hasAttacked = false;
                 canMove = true;
                 _waiting2 = false;
-
-                Debug.Log("Done Waiting");
+                animator.SetBool("IsMoving", true);
+               // Debug.Log("Done Waiting");
             }
         }
-        
-        
         if (canMove)
         {
             Move();    
         }
-        
+  
     }
-    private void FixedUpdate() {
-       // if(Target){
-       //     rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
-       // }
-        //LookAtPlayer();
-      
-        
-                   
+    private void FixedUpdate() {             
     }
      public void LookAtPlayer(){
          Vector3 flipped = transform.localScale;
@@ -123,7 +119,7 @@ public class Boss : MonoBehaviour
      public void Move()
         {
             Flip();
-            Debug.Log("IsMoving");
+            //Debug.Log("IsMoving" + speed );
         // If Enemy didn't reach last waypoint it can move
         // If enemy reached last waypoint then it stops
         animator.SetBool("IsMoving", true);
@@ -185,7 +181,8 @@ public class Boss : MonoBehaviour
         }
         public void Agro(){
          LookAtPlayer();
-        Debug.Log("In Agro");
+        //Debug.Log("In Agro" + speed);
+        InAgro = true;
         animator.SetBool("IsMoving", true);
         canMove = false;
 
@@ -202,14 +199,42 @@ public class Boss : MonoBehaviour
         public void Attack(){
         // Debug.Log("Attacked");
         //LookAtPlayer();
-        
-        Debug.Log("In Attack");
+        InAgro = false;
+        //Debug.Log("In Attack");
         speed = 0;
-    animator.SetTrigger("Attack");
-            _waiting2 = true;
-            hasAttacked = true;
+        animator.SetTrigger("Attack");
+        animator.SetBool("IsMoving", false);
+        _waiting2 = true;
+        hasAttacked = true;
+
+        hitPlayer = Physics2D.OverlapCircleAll(AttackPointRight.position, attackRange, playerLayer);
+        foreach (Collider2D p in hitPlayer)
+        {
+            p.GetComponent<playermovement>().Invoke("TakeDamage", 0.7f);
         }
-    
-   
+    }
+    public void TakeDamage(int dmg)
+    {
+
+        currentHealth -= dmg;
+        animator.SetTrigger("TakeDmg");
+        if (currentHealth<=0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        animator.SetTrigger("IsDead");
+    }
+    void OnDrawGizmosSelected()
+    {
+        if (AttackPointRight == null)
+            return;
+        
+        Gizmos.DrawWireSphere(AttackPointRight.position, attackRange);
+      
+    }
+
 
 }
