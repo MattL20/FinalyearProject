@@ -13,6 +13,7 @@ public class Boss : MonoBehaviour
     public bool canMove = false;
     public float AgroRange = 5f;
     public float AttRange = 3f;
+    private bool Alive = true;
     
 
     private float _waitTime = 1f; // in seconds
@@ -37,65 +38,76 @@ public class Boss : MonoBehaviour
     public LayerMask playerLayer;
     private Collider2D[] hitPlayer;
 
+    private static GameObject BBarrel;
 
+    private static bool Fixing = false;
 
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        
     }
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         transform.position = waypoints[waypointIndex].transform.position;
         currentHealth = maxHealth;
+        
     }
     private void Update() {
         float dist = Vector2.Distance(transform.position,player.position);
-
-        if (dist < AgroRange && !hasAttacked)
-        {
-            Agro();
-            if (dist < AttRange && !hasAttacked)
+        //Debug.Log("Update Fixing " + Fixing);
+        
+        if(Alive&&!Fixing){
+            if (dist < AgroRange && !hasAttacked)
             {
-                
-                // StopAgro();
-               Attack();
-                
-                
-                _waitCounter2 = 0f;
-                
+                Agro();
+                if (dist < AttRange && !hasAttacked)
+                {
+                    
+                    // StopAgro();
+                Attack();
+                    
+                    
+                    _waitCounter2 = 0f;
+                    
+                }
             }
-        }
-        if(dist > AgroRange && InAgro)
-        {
-            speed = 6;
-            Move();
-        }
-         if (hasAttacked)
-        {
- 
-            if (_waiting2)
+            if(dist > AgroRange && InAgro)
             {
-               // Debug.Log("HERE ");
-               // Debug.Log("Wait Counter " + _waitCounter2);
-
-                _waitCounter2 += Time.deltaTime;
-                if (_waitCounter2 < _waitTime2)
-                    return;
                 speed = 6;
-                hasAttacked = false;
-                canMove = true;
-                _waiting2 = false;
-                animator.SetBool("IsMoving", true);
-               // Debug.Log("Done Waiting");
+                Move();
+            }
+            if (hasAttacked)
+            {
+    
+                if (_waiting2)
+                {
+                // Debug.Log("HERE ");
+                // Debug.Log("Wait Counter " + _waitCounter2);
+
+                    _waitCounter2 += Time.deltaTime;
+                    if (_waitCounter2 < _waitTime2)
+                        return;
+                    speed = 6;
+                    hasAttacked = false;
+                    canMove = true;
+                    _waiting2 = false;
+                    animator.SetBool("IsMoving", true);
+                // Debug.Log("Done Waiting");
+                }
+            }
+            if (canMove)
+            {
+                Move();    
             }
         }
-        if (canMove)
-        {
-            Move();    
+        if(Fixing){
+            Fix();
         }
-  
+        //Debug.Log(Fixing);
+
     }
     private void FixedUpdate() {             
     }
@@ -186,7 +198,7 @@ public class Boss : MonoBehaviour
         animator.SetBool("IsMoving", true);
         canMove = false;
 
-        transform.position = Vector2.MoveTowards(transform.position,
+        transform.position = Vector3.MoveTowards(transform.position,
                    player.position,
                    speed * Time.deltaTime);
 
@@ -221,11 +233,40 @@ public class Boss : MonoBehaviour
         if (currentHealth<=0)
         {
             Die();
+            Alive = false;
         }
     }
     void Die()
     {
         animator.SetTrigger("IsDead");
+
+    }
+    public void Fix(){
+        float dist = Vector2.Distance(transform.position,player.position);
+        Debug.Log(BBarrel.transform.position);
+        Debug.Log("Dist = " + dist);
+
+
+        if(dist>=0.5f){
+            transform.position = Vector2.MoveTowards(transform.position,
+                   BBarrel.transform.position,
+                   speed * Time.deltaTime);
+        
+                   
+        }
+        if(dist<=1f){
+            animator.SetBool("IsMoving", false);
+            speed = 0;
+        }
+                   //Debug.Log(BBarrel.position.x);
+    }
+    public void setFix(){
+        Fixing = true;
+       // Debug.Log(Fixing);
+    }
+    public void setBarrel(GameObject x){
+        BBarrel = x;
+        //Debug.Log(BBarrel.position.x+ " " + BBarrel.position.y);
     }
     void OnDrawGizmosSelected()
     {

@@ -17,10 +17,12 @@ public class Attack : MonoBehaviour
 
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+    public LayerMask itemLayer;
     private float LastX = 0;
     private float LastY = 0;
     private playermovement pm;
     private Collider2D[] hitEnemies;
+    private Collider2D[] hitItems;
     // public Transform player;
     private int AttackDmg = 20;
 
@@ -53,19 +55,32 @@ public class Attack : MonoBehaviour
         if (LastX == 1 && LastY == 0)
         {
            hitEnemies = Physics2D.OverlapCircleAll(AttackPointRight.position, attackRange, enemyLayer);
+           hitItems = Physics2D.OverlapCircleAll(AttackPointRight.position, attackRange, itemLayer);
         }else if (LastX == -1 && LastY == 0)
         {
             hitEnemies = Physics2D.OverlapCircleAll(AttackPointLeft.position, attackRange, enemyLayer);
+            hitItems = Physics2D.OverlapCircleAll(AttackPointLeft.position, attackRange, itemLayer);
         }else if (LastX == 0 && LastY == 1)
         {
           hitEnemies = Physics2D.OverlapCircleAll(AttackPointUp.position, attackRange, enemyLayer);
+          hitItems = Physics2D.OverlapCircleAll(AttackPointUp.position, attackRange, itemLayer);
         }else if (LastX == 0 && LastY == -1)
         {
            hitEnemies = Physics2D.OverlapCircleAll(AttackPointDown.position, attackRange, enemyLayer);
+           hitItems = Physics2D.OverlapCircleAll(AttackPointDown.position, attackRange, itemLayer);
         }
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Boss>().TakeDamage(AttackDmg);
+        }
+        foreach(Collider2D items in hitItems)
+        {
+            if(items.tag=="Barrel"){
+            items.GetComponent<BarrelScript>().TakeDamage(AttackDmg);
+            }
+            if(items.tag=="HalfBrokenBarrel"){
+            items.GetComponent<HalfBrokenBarrel>().TakeDamage(AttackDmg);  
+            }
         }
     }
     //void OnDrawGizmosSelected()
