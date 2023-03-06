@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
     public float AgroRange = 5f;
     public float AttRange = 3f;
     private bool Alive = true;
+    private float maxSpeedS1 = 6f;
     
 
     private float _waitTime = 1f; // in seconds
@@ -24,7 +25,11 @@ public class Boss : MonoBehaviour
     private float _waitCounter2 = 0f;
     private bool _waiting2 = false;
 
-    
+    private float dmgwaitTime = 5f; // in seconds
+    private float dmgwaitCounter = 0f;
+    private bool dmgwaiting = false;
+
+
 
     private bool hasAttacked = false;
     private bool InAgro = false;
@@ -41,7 +46,7 @@ public class Boss : MonoBehaviour
     private static GameObject BBarrel;
 
     private static bool Fixing = false;
-
+    private int BarrelCount = 8;
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
@@ -51,13 +56,19 @@ public class Boss : MonoBehaviour
     }
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.position = waypoints[waypointIndex].transform.position;
         currentHealth = maxHealth;
         
     }
     private void Update() {
         float dist = Vector2.Distance(transform.position,player.position);
         //Debug.Log("Update Fixing " + Fixing);
+        if (BarrelCount <= 3)
+        {
+            maxSpeedS1 = 9;
+        }else if(BarrelCount <= 6)
+        {
+            maxSpeedS1 = 7;
+        }
         
         if(Alive&&!Fixing){
             if (dist < AgroRange && !hasAttacked)
@@ -76,7 +87,7 @@ public class Boss : MonoBehaviour
             }
             if(dist > AgroRange && InAgro)
             {
-                speed = 6;
+                speed = maxSpeedS1;
                 Move();
             }
             if (hasAttacked)
@@ -90,7 +101,7 @@ public class Boss : MonoBehaviour
                     _waitCounter2 += Time.deltaTime;
                     if (_waitCounter2 < _waitTime2)
                         return;
-                    speed = 6;
+                    speed = maxSpeedS1;
                     hasAttacked = false;
                     canMove = true;
                     _waiting2 = false;
@@ -104,8 +115,22 @@ public class Boss : MonoBehaviour
             }
         }
         if(Fixing){
+
             Fix();
+            if (dmgwaiting)
+            {
+                
+                dmgwaitCounter += Time.deltaTime;
+                if (dmgwaitCounter < dmgwaitTime)
+                    return;
+                animator.SetBool("IsMoving", true);
+                speed = maxSpeedS1;
+                Fixing = false;
+                dmgwaiting = false;
+            }
+            
         }
+        Debug.Log("Fixing Outside= " + Fixing);
         //Debug.Log(Fixing);
 
     }
@@ -242,12 +267,13 @@ public class Boss : MonoBehaviour
 
     }
     public void Fix(){
-        float dist = Vector2.Distance(transform.position,player.position);
-        Debug.Log(BBarrel.transform.position);
-        Debug.Log("Dist = " + dist);
+        dmgwaiting = true;
+        float dist = Vector2.Distance(transform.position, BBarrel.transform.position);
+        //Debug.Log(BBarrel.transform.position);
+        Debug.Log("Fixing inside= " + Fixing);
 
 
-        if(dist>=0.5f){
+        if (dist>=0.5f){
             transform.position = Vector2.MoveTowards(transform.position,
                    BBarrel.transform.position,
                    speed * Time.deltaTime);
@@ -260,13 +286,18 @@ public class Boss : MonoBehaviour
         }
                    //Debug.Log(BBarrel.position.x);
     }
-    public void setFix(){
+    public  void setFix(){
         Fixing = true;
-       // Debug.Log(Fixing);
+       
+        // Debug.Log(Fixing);
     }
     public void setBarrel(GameObject x){
         BBarrel = x;
         //Debug.Log(BBarrel.position.x+ " " + BBarrel.position.y);
+    }
+    public void countBarrel()
+    {
+        BarrelCount--;
     }
     void OnDrawGizmosSelected()
     {

@@ -10,12 +10,14 @@ public class BrokenBarrel : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-       Debug.Log("JAIUHISAUDFIASJDAJSD PEDJHFBVESHFPIUWEHFBOAIUDHFBIUECHOIBAUEWHFBFAIWCBOFEWFOIUAWEFOIUDG");
     }
     void Start()
     {
-        
+        this.BroBarrel.transform.position = this.transform.position;
+        Debug.Log("this.BrokenBarrel = " + this.transform.position);
         Boss.GetComponent<Boss>().setFix();
+        Boss.GetComponent<Boss>().countBarrel();
+        Debug.Log("*********************************************************************************************************************************************************************** ");
     }
 
     // Update is called once per frame

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7217477280912523383}
   - component: {fileID: 3168434618925936786}
   - component: {fileID: 3741542633139353526}
-  m_Layer: 22
+  m_Layer: 21
   m_Name: HalfBrokenBarrel
   m_TagString: HalfBrokenBarrel
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7467368888190310891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.19, z: 0}
+  m_LocalPosition: {x: 11, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

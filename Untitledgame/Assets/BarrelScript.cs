@@ -11,6 +11,7 @@ public class BarrelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.Barrel.transform.position = transform.position;
         maxHealth = 60;
         currentHealth = maxHealth;
         Debug.Log("Pos = " + Barrel.transform.position);
@@ -23,11 +24,11 @@ public class BarrelScript : MonoBehaviour
     }
     public void TakeDamage(int dmg)
     {
-
+        Debug.Log("this.Barrel = " + this.transform.position);
         currentHealth -= dmg;
         if(currentHealth<=20){
-            Instantiate(HalfBrokenBarrel,transform.position, transform.rotation);
-            Debug.Log("Pos = " + HalfBrokenBarrel.transform.position);
+            Instantiate(HalfBrokenBarrel,this.transform.position, this.transform.rotation);
+            //Debug.Log("Pos = " + HalfBrokenBarrel.transform.position);
            // HalfBrokenBarrel.GetComponent<HalfBrokenBarrel>().maxHealth = currentHealth;
             Destroy(Barrel);
         }
