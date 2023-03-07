@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour
 {
     public Transform player;
     public bool isFlipped = true;
-    public float speed = 6f;
+    public float speed;
     public Transform[] waypoints;
     private int waypointIndex = 0;
     public Animator animator;
@@ -14,7 +14,7 @@ public class Boss : MonoBehaviour
     public float AgroRange = 5f;
     public float AttRange = 3f;
     private bool Alive = true;
-    private float maxSpeedS1 = 6f;
+    private static float maxSpeedS1 = 6f;
     
 
     private float _waitTime = 1f; // in seconds
@@ -27,7 +27,7 @@ public class Boss : MonoBehaviour
 
     private float dmgwaitTime = 5f; // in seconds
     private float dmgwaitCounter = 0f;
-    private bool dmgwaiting = false;
+    private static bool dmgwaiting = false;
 
 
 
@@ -46,7 +46,8 @@ public class Boss : MonoBehaviour
     private static GameObject BBarrel;
 
     private static bool Fixing = false;
-    private int BarrelCount = 8;
+
+    private static int BarrelCount = 8;
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
@@ -62,6 +63,7 @@ public class Boss : MonoBehaviour
     private void Update() {
         float dist = Vector2.Distance(transform.position,player.position);
         //Debug.Log("Update Fixing " + Fixing);
+        //Debug.Log("BarrelCount " + BarrelCount );
         if (BarrelCount <= 3)
         {
             maxSpeedS1 = 9;
@@ -125,12 +127,15 @@ public class Boss : MonoBehaviour
                     return;
                 animator.SetBool("IsMoving", true);
                 speed = maxSpeedS1;
-                Fixing = false;
+                
+                    Fixing = false;
+                
+                dmgwaitCounter = 0;
                 dmgwaiting = false;
             }
             
         }
-        Debug.Log("Fixing Outside= " + Fixing);
+        //Debug.Log("Fixing Outside= " + Fixing);
         //Debug.Log(Fixing);
 
     }
@@ -156,7 +161,7 @@ public class Boss : MonoBehaviour
      public void Move()
         {
             Flip();
-            //Debug.Log("IsMoving" + speed );
+            //Debug.Log("IsMoving");
         // If Enemy didn't reach last waypoint it can move
         // If enemy reached last waypoint then it stops
         animator.SetBool("IsMoving", true);
@@ -206,14 +211,22 @@ public class Boss : MonoBehaviour
         public void Flip(){
             Vector3 flipped = transform.localScale;
         flipped.z *= -1f;
-        if(isFlipped&&waypoints[waypointIndex].transform.position.x<transform.position.x){
-        transform.localScale = flipped;
-        transform.Rotate(0f,180f,0f);
-        isFlipped = false;
-        }else if(!isFlipped&&waypoints[waypointIndex].transform.position.x>transform.position.x){
+        if(isFlipped&&waypoints[waypointIndex].transform.position.x<transform.position.x&&!Fixing){
             transform.localScale = flipped;
-        transform.Rotate(0f,180f,0f);
-        isFlipped = true;
+            transform.Rotate(0f,180f,0f);
+            isFlipped = false;
+        }else if(!isFlipped&&waypoints[waypointIndex].transform.position.x>transform.position.x&&!Fixing){
+            transform.localScale = flipped;
+            transform.Rotate(0f,180f,0f);
+            isFlipped = true;
+        }else if(Fixing&&isFlipped&&transform.position.x>BBarrel.transform.position.x){
+            transform.localScale = flipped;
+            transform.Rotate(0f,180f,0f);
+            isFlipped = false;
+        }else if(Fixing&&!isFlipped&&transform.position.x<BBarrel.transform.position.x){
+            transform.localScale = flipped;
+            transform.Rotate(0f,180f,0f);
+            isFlipped = true;
         }
         }
         public void Agro(){
@@ -267,19 +280,19 @@ public class Boss : MonoBehaviour
 
     }
     public void Fix(){
+        Flip();
         dmgwaiting = true;
         float dist = Vector2.Distance(transform.position, BBarrel.transform.position);
-        //Debug.Log(BBarrel.transform.position);
-        Debug.Log("Fixing inside= " + Fixing);
+        // Debug.Log("BBarrel = " + BBarrel.transform.position);
+        // Debug.Log("dist= " + dist);
+        // Debug.Log("Speed= " + speed);
 
-
-        if (dist>=0.5f){
+        if(dist>=1f){
             transform.position = Vector2.MoveTowards(transform.position,
                    BBarrel.transform.position,
                    speed * Time.deltaTime);
+        }       
         
-                   
-        }
         if(dist<=1f){
             animator.SetBool("IsMoving", false);
             speed = 0;
@@ -287,17 +300,21 @@ public class Boss : MonoBehaviour
                    //Debug.Log(BBarrel.position.x);
     }
     public  void setFix(){
-        Fixing = true;
+            Fixing = true;
+            //canMove = false;
+        
+        
        
-        // Debug.Log(Fixing);
+        //Debug.Log("Fixing " +Fixing + "Fixing2 " + Fixing2+ "Fixing3 " + Fixing3+ "Fixing4 " +Fixing4+  "Fixing5 " + Fixing5+ "Fixing6 " + Fixing6+ "Fixing7 " +Fixing7+ "Fixing8 " +Fixing8);
     }
     public void setBarrel(GameObject x){
         BBarrel = x;
-        //Debug.Log(BBarrel.position.x+ " " + BBarrel.position.y);
+        
     }
     public void countBarrel()
     {
-        BarrelCount--;
+        BarrelCount = BarrelCount -1;
+        //Debug.Log("BarrelCount inside " + BarrelCount );
     }
     void OnDrawGizmosSelected()
     {

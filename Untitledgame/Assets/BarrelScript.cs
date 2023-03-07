@@ -14,7 +14,7 @@ public class BarrelScript : MonoBehaviour
         this.Barrel.transform.position = transform.position;
         maxHealth = 60;
         currentHealth = maxHealth;
-        Debug.Log("Pos = " + Barrel.transform.position);
+        //Debug.Log("Pos = " + Barrel.transform.position);
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class BarrelScript : MonoBehaviour
     }
     public void TakeDamage(int dmg)
     {
-        Debug.Log("this.Barrel = " + this.transform.position);
+        //Debug.Log("this.Barrel = " + this.transform.position);
         currentHealth -= dmg;
         if(currentHealth<=20){
             Instantiate(HalfBrokenBarrel,this.transform.position, this.transform.rotation);

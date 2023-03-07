@@ -14,10 +14,10 @@ public class BrokenBarrel : MonoBehaviour
     void Start()
     {
         this.BroBarrel.transform.position = this.transform.position;
-        Debug.Log("this.BrokenBarrel = " + this.transform.position);
-        Boss.GetComponent<Boss>().setFix();
+        //Debug.Log("this.BrokenBarrel = " + this.transform.position);
         Boss.GetComponent<Boss>().countBarrel();
-        Debug.Log("*********************************************************************************************************************************************************************** ");
+        Boss.GetComponent<Boss>().setFix();
+        //Debug.Log("*********************************************************************************************************************************************************************** ");
     }
 
     // Update is called once per frame
