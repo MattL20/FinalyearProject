@@ -28,7 +28,8 @@ public class EnemyTextBoxManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(textFile != null){
+        player.GetComponent<playermovement>().enabled = false;
+        if (textFile != null){
             lines = (textFile.text.Split("\n"));
         }
        if(endLine==0){

@@ -14,8 +14,9 @@ public class TextBoxManager : MonoBehaviour
     public int currentLine = 0;
     public int endLine = 0;
     public GameObject player;
+    public GameObject TutorialCanvas;
 
-    public bool isActive;
+    public bool isActive = true;
 
     public bool stopPlayer;
 
@@ -24,9 +25,14 @@ public class TextBoxManager : MonoBehaviour
 
     public float typeSpeed;
     // Start is called before the first frame update
+    void awake()
+    {
+        
+    }
     void Start()
     {
-        if(textFile != null){
+        
+        if (textFile != null){
             lines = (textFile.text.Split("\n"));
         }
        if(endLine==0){
@@ -42,12 +48,15 @@ public class TextBoxManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isActive){
+       
+        if (!isActive){
             return;
         }else{
-     //theText.text = lines[currentLine]; 
-     if(Input.GetKeyDown(KeyCode.Space)) {
-        if(!isTyping){
+            //theText.text = lines[currentLine]; 
+            player.GetComponent<playermovement>().enabled = false;
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                
+                if (!isTyping){
             currentLine = currentLine + 1;
 
             if(currentLine>endLine){
@@ -85,6 +94,11 @@ public class TextBoxManager : MonoBehaviour
         StartCoroutine(TextScroll(lines[currentLine]));
     }
     public void DisableTextBox(){
+        if(TutorialCanvas != null)
+        {
+
+        TutorialCanvas.GetComponent<TutorialInfoScript>().addFirstTutorial();
+        }
         TextBox.SetActive(false);
         isActive = false;
         player.GetComponent<playermovement>().enabled = true;
