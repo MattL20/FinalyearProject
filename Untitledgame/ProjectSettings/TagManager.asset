@@ -8,6 +8,8 @@ TagManager:
   - Barrel
   - HalfBrokenBarrel
   - BrokenBarrel
+  - HealthBar
+  - Healthbar
   layers:
   - Default
   - TransparentFX

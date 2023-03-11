@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Boss : MonoBehaviour
 {
     public Transform player;
@@ -28,6 +29,8 @@ public class Boss : MonoBehaviour
     private float dmgwaitTime = 5f; // in seconds
     private float dmgwaitCounter = 0f;
     private static bool dmgwaiting = false;
+
+    public HealthBar Hp;
 
 
 
@@ -58,9 +61,11 @@ public class Boss : MonoBehaviour
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         currentHealth = maxHealth;
+        Hp.SetMaxHealth(maxHealth);
         
     }
     private void Update() {
+        
         float dist = Vector2.Distance(transform.position,player.position);
         //Debug.Log("Update Fixing " + Fixing);
         //Debug.Log("BarrelCount " + BarrelCount );
@@ -135,6 +140,7 @@ public class Boss : MonoBehaviour
             }
             
         }
+        
         //Debug.Log("Fixing Outside= " + Fixing);
         //Debug.Log(Fixing);
 
@@ -273,6 +279,7 @@ public class Boss : MonoBehaviour
             Die();
             Alive = false;
         }
+        Hp.SetHealth(currentHealth);
     }
     void Die()
     {

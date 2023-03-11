@@ -23,6 +23,8 @@ public class playermovement : MonoBehaviour
     public HealthBar Hp;
     private int enemyAttDmg = 20;
 
+    public GameObject Death;
+
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     
 
@@ -88,6 +90,13 @@ public class playermovement : MonoBehaviour
     void Die()
     {
         // animator.SetTrigger("IsDead");
-        Debug.Log("Dead");
+        Death.GetComponent<DeathScreenManager>().Died();
+    }
+    public void respawnPlayer(Vector3 pos){
+        transform.position = pos;
+        
+    }
+    public void resetHealth(){
+        currentHealth = maxHealth;
     }
 }

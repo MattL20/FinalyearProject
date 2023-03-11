@@ -73,4 +73,15 @@ public class Spawn : MonoBehaviour
 
     camMove = false;
 }
+public void SpawnAgain(){
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[1].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[4].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[7].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[10].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[13].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[16].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[19].position, Barrels.transform.rotation);
+        Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[22].position, Barrels.transform.rotation);
+       // Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation); 
+}
 }
