@@ -23,12 +23,12 @@ public class Despawn : StateMachineBehaviour
         Debug.Log("Wait counter" + _waitCounter);
         if (_waiting)
         {
-            Debug.Log("Waiting");
+           // Debug.Log("Waiting");
             _waitCounter += Time.deltaTime;
             if (_waitCounter < _waitTime)
                 return;
             _waiting = false;
-            Debug.Log("Destroy");
+            //Debug.Log("Destroy");
             Destroy(Enemy);
         }
     }

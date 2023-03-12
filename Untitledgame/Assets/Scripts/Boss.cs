@@ -30,7 +30,7 @@ public class Boss : MonoBehaviour
     private float dmgwaitCounter = 0f;
     private static bool dmgwaiting = false;
 
-    public HealthBar Hp;
+    //public HealthBar Hp;
 
 
 
@@ -38,7 +38,7 @@ public class Boss : MonoBehaviour
     private bool InAgro = false;
 
     public int maxHealth = 100;
-    private int currentHealth;
+    private static int currentHealth;
    
 
     public Transform AttackPointRight;
@@ -51,17 +51,20 @@ public class Boss : MonoBehaviour
     private static bool Fixing = false;
 
     private static int BarrelCount = 8;
+
+    public GameObject winningScreen;
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         
+        currentHealth = maxHealth;
+       // Debug.Log("On Awake" + currentHealth);
     }
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        currentHealth = maxHealth;
-        Hp.SetMaxHealth(maxHealth);
+       // Hp.SetMaxHealth(maxHealth);
         
     }
     private void Update() {
@@ -277,9 +280,17 @@ public class Boss : MonoBehaviour
         if (currentHealth<=0)
         {
             Die();
+            StartCoroutine(winScreen());
             Alive = false;
         }
-        Hp.SetHealth(currentHealth);
+       // Debug.Log("on take damage"+ currentHealth);
+        //Hp.SetHealth(currentHealth);
+    }
+
+    IEnumerator winScreen()
+    {
+        yield return new WaitForSeconds(1);
+        winningScreen.SetActive(true);
     }
     void Die()
     {
@@ -330,6 +341,15 @@ public class Boss : MonoBehaviour
         
         Gizmos.DrawWireSphere(AttackPointRight.position, attackRange);
       
+    }
+    public int getHealth()
+    {
+        //Debug.Log(currentHealth);
+        return currentHealth;
+    }
+    public int getMaxHealth()
+    {
+        return maxHealth;
     }
 
 

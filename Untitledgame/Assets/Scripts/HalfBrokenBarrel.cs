@@ -9,6 +9,7 @@ public class HalfBrokenBarrel : MonoBehaviour
     public GameObject Boss;
     public GameObject HalfBarrel;
     public GameObject BrokenBarrel;
+    public AudioSource punch;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,11 @@ public class HalfBrokenBarrel : MonoBehaviour
     {
         //Debug.Log("this.HalfBrokenBarrel = " + this.transform.position);
         currentHealth -= dmg;
-        if(currentHealth<=0){
+        if (currentHealth > 0)
+        {
+            punch.Play();
+        }
+        if (currentHealth<=0){
             Instantiate(this.BrokenBarrel,this.HalfBarrel.transform.position, this.HalfBarrel.transform.rotation);
             //Debug.Log("HELP = " + this.BrokenBarrel.transform.position);
             Boss.GetComponent<Boss>().setBarrel(this.BrokenBarrel);

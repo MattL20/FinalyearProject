@@ -103,4 +103,13 @@ public class EnemyTextBoxManager : MonoBehaviour
             lines = (newText.text.Split("\n"));
         }
     }
+    public void musicChange()
+    {
+        StartCoroutine(musicDelay());
+    }
+    IEnumerator musicDelay()
+    {
+        yield return new WaitForSeconds(10);
+        player.GetComponent<playermovement>().bossMusicStart();
+    }
 }

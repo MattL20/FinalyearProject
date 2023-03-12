@@ -11,13 +11,14 @@ public class HealthBar : MonoBehaviour
     public Image fill;
     public void SetMaxHealth(int max)
     {
-        slider.maxValue = max;
-        slider.value = max;
-        fill.color = gradient.Evaluate(1f);
+        this.slider.maxValue = max;
+        this.slider.value = max;
+        this.fill.color = gradient.Evaluate(1f);
     }
     public void SetHealth(int health)
     {
-        slider.value = health;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        Debug.Log(health);
+        this.slider.value = health;
+        this.fill.color = this.gradient.Evaluate(this.slider.normalizedValue);
     }
 }

@@ -25,6 +25,7 @@ public class Attack : MonoBehaviour
     private Collider2D[] hitItems;
     // public Transform player;
     private int AttackDmg = 20;
+    private int BarrelDmg = 10;
 
     void Awake() {
         controls = new NewPlayeractions();
@@ -76,10 +77,10 @@ public class Attack : MonoBehaviour
         foreach(Collider2D items in hitItems)
         {
             if(items.tag=="Barrel"){
-            items.GetComponent<BarrelScript>().TakeDamage(AttackDmg);
+            items.GetComponent<BarrelScript>().TakeDamage(BarrelDmg);
             }
             if(items.tag=="HalfBrokenBarrel"){
-            items.GetComponent<HalfBrokenBarrel>().TakeDamage(AttackDmg);  
+            items.GetComponent<HalfBrokenBarrel>().TakeDamage(BarrelDmg);  
             }
         }
     }

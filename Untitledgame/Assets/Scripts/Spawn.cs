@@ -15,6 +15,7 @@ public class Spawn : MonoBehaviour
     public GameObject Player;
     public SpawnTrigger trigger;
     public float FollowSpeed = 10f;
+    public GameObject bossHealthBar;
 
     private float _waitTime = 3f; // in seconds
     private float _waitCounter = 0f;
@@ -58,6 +59,7 @@ public class Spawn : MonoBehaviour
         Camera.GetComponent<CameraFollow>().enabled = false;
         Player.GetComponent<playermovement>().animator.SetFloat("Speed",0);
         Player.GetComponent<playermovement>().enabled = false;
+        
         StartCoroutine(WaitForFunction());
         camMove = true;
         state = State.Active;
@@ -66,8 +68,9 @@ public class Spawn : MonoBehaviour
     IEnumerator WaitForFunction()
 {
     yield return new WaitForSeconds(8);
-    Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation); 
+    Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation);
     yield return new WaitForSeconds(2);
+    bossHealthBar.SetActive(true);
     Camera.GetComponent<CameraFollow>().enabled = true;
     Player.GetComponent<playermovement>().enabled = true;
 

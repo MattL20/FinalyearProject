@@ -24,6 +24,8 @@ public class TextBoxManager : MonoBehaviour
     private bool interuptTyping = false;
 
     public float typeSpeed;
+
+    public AudioSource Scream;
     // Start is called before the first frame update
     void awake()
     {
@@ -62,7 +64,7 @@ public class TextBoxManager : MonoBehaviour
             if(currentLine>endLine){
                 DisableTextBox();
             } else{
-                StartCoroutine(TextScroll(lines[currentLine]));
+                StartCoroutine(TextScroll(lines[currentLine], currentLine));
             }
         }else if(isTyping&&!interuptTyping){
             interuptTyping = true;
@@ -70,7 +72,15 @@ public class TextBoxManager : MonoBehaviour
      }
         }
     }
-    private IEnumerator TextScroll(string lineOfText){
+    private IEnumerator TextScroll(string lineOfText, int num){
+        
+           
+        if(num==34)
+        {
+            Debug.Log("Scream");
+
+            Scream.Play();
+        }
         int letter = 0;
         theText.text = "";
         isTyping = true;
@@ -90,8 +100,10 @@ public class TextBoxManager : MonoBehaviour
         if(stopPlayer){
             player.GetComponent<playermovement>().animator.SetFloat("Speed",0);
             player.GetComponent<playermovement>().enabled = false;
+            player.GetComponent<PlayerInput>().enabled = false;
+            player.GetComponent<Attack>().enabled = false;
         }
-        StartCoroutine(TextScroll(lines[currentLine]));
+        StartCoroutine(TextScroll(lines[currentLine],currentLine));
     }
     public void DisableTextBox(){
         if(TutorialCanvas != null)
@@ -102,6 +114,8 @@ public class TextBoxManager : MonoBehaviour
         TextBox.SetActive(false);
         isActive = false;
         player.GetComponent<playermovement>().enabled = true;
+        player.GetComponent<PlayerInput>().enabled = true;
+        player.GetComponent<Attack>().enabled = true;
     }
 
     public void ReloadScript(TextAsset newText){

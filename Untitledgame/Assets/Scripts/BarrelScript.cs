@@ -8,6 +8,7 @@ public class BarrelScript : MonoBehaviour
     public int currentHealth;
     public GameObject Barrel;
     public GameObject HalfBrokenBarrel;
+    public AudioSource punch;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,10 @@ public class BarrelScript : MonoBehaviour
     {
         //Debug.Log("this.Barrel = " + this.transform.position);
         currentHealth -= dmg;
+        if (currentHealth > 20)
+        {
+            punch.Play();
+        }
         if(currentHealth<=20){
             Instantiate(HalfBrokenBarrel,this.transform.position, this.transform.rotation);
             //Debug.Log("Pos = " + HalfBrokenBarrel.transform.position);

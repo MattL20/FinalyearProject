@@ -20,20 +20,27 @@ public class playermovement : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
-    public HealthBar Hp;
+   // public HealthBar Hp;
     private int enemyAttDmg = 20;
 
     public GameObject Death;
 
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    
+    public AudioSource walking;
+    public AudioSource NormalMusic;
+    public AudioSource BossMusic;
+    public AudioSource getHit;
+
+
+
 
     Vector2 movementInput;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        
-        Hp.SetMaxHealth(maxHealth);
+        //NormalMusic.Play();
+        //Hp.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -48,7 +55,8 @@ public class playermovement : MonoBehaviour
             animator.SetFloat("LastX", LastX);
             animator.SetFloat("LastY", LastY);
         }
-        Hp.SetHealth(currentHealth);
+        
+
 
         //Debug.Log(movementInput.sqrMagnitude);
         //Debug.Log(direction);
@@ -58,8 +66,8 @@ public class playermovement : MonoBehaviour
     {
         //movement
         //
-        
 
+        
         if (movementInput != Vector2.zero){
                 int count = rb.Cast(
                 movementInput,
@@ -68,24 +76,41 @@ public class playermovement : MonoBehaviour
                 MovementSpeed * Time.fixedDeltaTime + collisionOffset);
                 if(count == 0){
             rb.MovePosition(rb.position + movementInput * MovementSpeed * Time.fixedDeltaTime);
-        }
+                
+
+            }
+            else
+            {
+                
+            }
         //test
         }
       
     }
    
     void OnMove(InputValue movementValue){
-        movementInput = movementValue.Get<Vector2>(); 
+        movementInput = movementValue.Get<Vector2>();
+        if (movementInput != Vector2.zero&& walking.isPlaying == false)
+        {
+            walking.Play();
+        }else if(movementInput == Vector2.zero&& walking.isPlaying == true)
+        {
+            walking.Stop();
+        }
+        
     }
+    
     public void TakeDamage()
     {
        
-            currentHealth -= enemyAttDmg;
+        currentHealth -= enemyAttDmg;
+        getHit.Play();
         //animator.SetTrigger("TakeDmg");
         if (currentHealth <= 0)
         {
             Die();
         }
+        //Hp.SetHealth(currentHealth);
     }
     void Die()
     {
@@ -98,5 +123,19 @@ public class playermovement : MonoBehaviour
     }
     public void resetHealth(){
         currentHealth = maxHealth;
+    }
+    public int getHealth()
+    {
+        return currentHealth;
+    }
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
+    public void bossMusicStart()
+    {
+        NormalMusic.Stop();
+        BossMusic.Play();
+
     }
 }
