@@ -32,7 +32,7 @@ public class Boss : MonoBehaviour
 
     //public HealthBar Hp;
 
-
+    public AudioSource punch;
 
     private bool hasAttacked = false;
     private bool InAgro = false;
@@ -52,7 +52,9 @@ public class Boss : MonoBehaviour
 
     private static int BarrelCount = 8;
 
-    public GameObject winningScreen;
+    public static bool isPlayerAlive;
+
+    
     Rigidbody2D rb;
     Transform Target;
     Vector2 moveDirection;
@@ -123,6 +125,8 @@ public class Boss : MonoBehaviour
             {
                 Move();    
             }
+            isPlayerAlive = player.GetComponent<playermovement>().getAlive();
+            //Debug.Log("Player is alive? " + isPlayerAlive);
         }
         if(Fixing){
 
@@ -170,7 +174,7 @@ public class Boss : MonoBehaviour
      public void Move()
         {
             Flip();
-            //Debug.Log("IsMoving");
+            Debug.Log("Speed" + speed);
         // If Enemy didn't reach last waypoint it can move
         // If enemy reached last waypoint then it stops
         animator.SetBool("IsMoving", true);
@@ -277,21 +281,18 @@ public class Boss : MonoBehaviour
 
         currentHealth -= dmg;
         animator.SetTrigger("TakeDmg");
+        punch.Play();
         if (currentHealth<=0)
         {
             Die();
-            StartCoroutine(winScreen());
+            
             Alive = false;
         }
        // Debug.Log("on take damage"+ currentHealth);
         //Hp.SetHealth(currentHealth);
     }
 
-    IEnumerator winScreen()
-    {
-        yield return new WaitForSeconds(1);
-        winningScreen.SetActive(true);
-    }
+    
     void Die()
     {
         animator.SetTrigger("IsDead");
@@ -350,6 +351,10 @@ public class Boss : MonoBehaviour
     public int getMaxHealth()
     {
         return maxHealth;
+    }
+    public bool getIsPlayerAlive()
+    {
+        return isPlayerAlive;
     }
 
 

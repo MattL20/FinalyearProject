@@ -84,19 +84,19 @@ public class Attack : MonoBehaviour
             }
         }
     }
-    //void OnDrawGizmosSelected()
-    //{
-    //    if (AttackPointRight == null)
-    //        return;
-    //    if (AttackPointLeft == null)
-    //        return;
-    //    if (AttackPointUp == null)
-    //        return;
-    //    if (AttackPointDown == null)
-    //        return;
-    //    Gizmos.DrawWireSphere(AttackPointRight.position, attackRange);
-    //    Gizmos.DrawWireSphere(AttackPointLeft.position, attackRange);
-    //    Gizmos.DrawWireSphere(AttackPointUp.position, attackRange);
-    //    Gizmos.DrawWireSphere(AttackPointDown.position, attackRange);
-    //}
+    void OnDrawGizmosSelected()
+    {
+        if (AttackPointRight == null)
+            return;
+        if (AttackPointLeft == null)
+            return;
+        if (AttackPointUp == null)
+            return;
+        if (AttackPointDown == null)
+            return;
+        Gizmos.DrawWireSphere(AttackPointRight.position, attackRange);
+        Gizmos.DrawWireSphere(AttackPointLeft.position, attackRange);
+        Gizmos.DrawWireSphere(AttackPointUp.position, attackRange);
+        Gizmos.DrawWireSphere(AttackPointDown.position, attackRange);
+    }
 }

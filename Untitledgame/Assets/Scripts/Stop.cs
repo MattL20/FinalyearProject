@@ -21,7 +21,7 @@ public class Stop : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player.GetComponent<playermovement>().MovementSpeed = 5;
+        player.GetComponent<playermovement>().MovementSpeed = 6;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

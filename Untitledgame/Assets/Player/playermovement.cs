@@ -31,6 +31,8 @@ public class playermovement : MonoBehaviour
     public AudioSource BossMusic;
     public AudioSource getHit;
 
+    public static bool Alive = true;
+
 
 
 
@@ -115,6 +117,7 @@ public class playermovement : MonoBehaviour
     void Die()
     {
         // animator.SetTrigger("IsDead");
+        Alive = false;
         Death.GetComponent<DeathScreenManager>().Died();
     }
     public void respawnPlayer(Vector3 pos){
@@ -137,5 +140,9 @@ public class playermovement : MonoBehaviour
         NormalMusic.Stop();
         BossMusic.Play();
 
+    }
+    public bool getAlive()
+    {
+        return Alive;
     }
 }

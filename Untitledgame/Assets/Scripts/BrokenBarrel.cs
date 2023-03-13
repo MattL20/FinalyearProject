@@ -6,7 +6,7 @@ public class BrokenBarrel : MonoBehaviour
 {
     public GameObject Boss;
     public GameObject BroBarrel;
-    private bool test = true;
+    
     // Start is called before the first frame update
     void Awake()
     {

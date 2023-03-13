@@ -88,6 +88,8 @@ public class EnemyTextBoxManager : MonoBehaviour
         if(stopPlayer){
             player.GetComponent<playermovement>().animator.SetFloat("Speed",0);
             player.GetComponent<playermovement>().enabled = false;
+            //player.GetComponent<PlayerInput>().enabled = false;
+            //player.GetComponent<Attack>().enabled = false;
         }
         StartCoroutine(TextScroll(lines[currentLine]));
     }
@@ -95,6 +97,8 @@ public class EnemyTextBoxManager : MonoBehaviour
         TextBox.SetActive(false);
         isActive = false;
         player.GetComponent<playermovement>().enabled = true;
+        //player.GetComponent<PlayerInput>().enabled = true;
+        //player.GetComponent<Attack>().enabled = true;
     }
 
     public void ReloadScript(TextAsset newText){

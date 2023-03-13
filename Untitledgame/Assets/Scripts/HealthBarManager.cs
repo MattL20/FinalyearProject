@@ -8,7 +8,7 @@ public class HealthBarManager : MonoBehaviour
     public HealthBar HealthBar;
     private int max;
     private int current;
-    public GameObject winningScreen;
+    public GameObject winningScreen; 
     private void Start()
     {
         SetMaxHealth();
@@ -17,9 +17,11 @@ public class HealthBarManager : MonoBehaviour
     private void Update()
     {
         SetHealth();
+        
         if(BossOrPlayer.name == "OCD_Monster")
         {
-            if(BossOrPlayer.GetComponent<Boss>().getHealth() == 0)
+           
+            if (BossOrPlayer.GetComponent<Boss>().getHealth() == 0 && BossOrPlayer.GetComponent<Boss>().getIsPlayerAlive())
             {
                 StartCoroutine(winScreen());
             }

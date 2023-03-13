@@ -17,9 +17,7 @@ public class Spawn : MonoBehaviour
     public float FollowSpeed = 10f;
     public GameObject bossHealthBar;
 
-    private float _waitTime = 3f; // in seconds
-    private float _waitCounter = 0f;
-    private bool _waiting = false;
+    
     private bool camMove = false;
 
     private State state;
