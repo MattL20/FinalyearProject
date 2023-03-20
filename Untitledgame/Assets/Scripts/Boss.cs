@@ -18,15 +18,15 @@ public class Boss : MonoBehaviour
     private static float maxSpeedS1 = 6f;
     
 
-    private float _waitTime = 1f; // in seconds
+    private float _waitTime = 1f; 
     private float _waitCounter = 0f;
     private bool _waiting = false;
 
-    private float _waitTime2 = 1f; // in seconds
+    private float _waitTime2 = 1f; 
     private float _waitCounter2 = 0f;
     private bool _waiting2 = false;
 
-    private float dmgwaitTime = 5f; // in seconds
+    private float dmgwaitTime = 5f; 
     private float dmgwaitCounter = 0f;
     private static bool dmgwaiting = false;
 
