@@ -9,10 +9,10 @@ public class HealthBarManager : MonoBehaviour
     private int max;
     private int current;
     public GameObject winningScreen; 
-    private void Start()
+    private void Awake()
     {
         SetMaxHealth();
-       Debug.Log( BossOrPlayer.name);
+       
     }
     private void Update()
     {
@@ -30,6 +30,7 @@ public class HealthBarManager : MonoBehaviour
     IEnumerator winScreen()
     {
         yield return new WaitForSeconds(1);
+        Time.timeScale = 0f;
         winningScreen.SetActive(true);
     }
 

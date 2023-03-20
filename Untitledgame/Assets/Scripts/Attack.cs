@@ -24,8 +24,8 @@ public class Attack : MonoBehaviour
     private Collider2D[] hitEnemies;
     private Collider2D[] hitItems;
     // public Transform player;
-    private int AttackDmg = 20;
-    private int BarrelDmg = 10;
+    private int AttackDmg = 2;
+    private int BarrelDmg = 5;
 
     void Awake() {
         controls = new NewPlayeractions();

@@ -21,13 +21,13 @@ public class playermovement : MonoBehaviour
     private int currentHealth;
 
    // public HealthBar Hp;
-    private int enemyAttDmg = 20;
+    private int enemyAttDmg = 25;
 
     public GameObject Death;
 
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     public AudioSource walking;
-    public AudioSource NormalMusic;
+   // public AudioSource NormalMusic;
     public AudioSource BossMusic;
     public AudioSource getHit;
 
@@ -137,12 +137,21 @@ public class playermovement : MonoBehaviour
     }
     public void bossMusicStart()
     {
-        NormalMusic.Stop();
+        // NormalMusic.Stop();
+        GameObject[] normal = GameObject.FindGameObjectsWithTag("GameMusicNormal");
+        foreach(var n in normal)
+        {
+            Destroy(n);
+        }
         BossMusic.Play();
 
     }
     public bool getAlive()
     {
         return Alive;
+    }
+    public void Retry()
+    {
+        Alive = true;
     }
 }

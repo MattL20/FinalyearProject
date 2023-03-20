@@ -15,24 +15,27 @@ public class SettingsMenu : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        resolutions = Screen.resolutions;
-        resDropdown.ClearOptions();
-        List<string> resOptions = new List<string>();
-        int currentResIndex = 0;
-
-        for (int i = 0; i < resolutions.Length; i++)
+        if (resDropdown != null)
         {
-            string option = resolutions[i].ToString();
-            resOptions.Add(option);
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResIndex = i;
-            }
-        }
+            resolutions = Screen.resolutions;
+            resDropdown.ClearOptions();
+            List<string> resOptions = new List<string>();
+            int currentResIndex = 0;
 
-        resDropdown.AddOptions(resOptions);
-        resDropdown.value = currentResIndex;
-        resDropdown.RefreshShownValue();
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].ToString();
+                resOptions.Add(option);
+                if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResIndex = i;
+                }
+            }
+
+            resDropdown.AddOptions(resOptions);
+            resDropdown.value = currentResIndex;
+            resDropdown.RefreshShownValue();
+        }
     }
     public void SetVolume(float volume)
     {

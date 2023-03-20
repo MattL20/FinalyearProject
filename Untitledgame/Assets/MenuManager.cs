@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public AudioSource NormalMusic;
    public void ChangeSceneByName(string name)
     {
+
         SceneManager.LoadScene(name);
     }
     public void Quit()

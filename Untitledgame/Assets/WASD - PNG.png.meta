@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2e970bd4f16bf04fa009359d10b0287
-      internalID: -1021345268
+      spriteID: 25f39518e507d4442923e9e5af0af105
+      internalID: 1108527364
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f77b0d12e37fe4b8d518b99573332f
-      internalID: -1849838134
+      spriteID: 2bafce87f69d75b4d895547249ac0d66
+      internalID: -384628568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD - PNG_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 450
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8472571ed9886448be50a5309114df8
+      internalID: 124812820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD - PNG_3
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 450
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b6c0edb84e77c489d72815bd72e324
+      internalID: -114540993
       vertices: []
       indices: 
       edges: []
@@ -157,8 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WASD - PNG_0: -1021345268
-      WASD - PNG_1: -1849838134
+      WASD - PNG_3: -114540993
+      WASD - PNG_2: 124812820
+      WASD - PNG_0: 1108527364
+      WASD - PNG_1: -384628568
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

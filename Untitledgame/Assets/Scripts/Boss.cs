@@ -42,9 +42,11 @@ public class Boss : MonoBehaviour
    
 
     public Transform AttackPointRight;
-    public float attackRange = 0.5f;
+    //public Transform AttackPointUp;
+    public float attackRange = 1.2f;
     public LayerMask playerLayer;
     private Collider2D[] hitPlayer;
+    private Collider2D[] hitPlayerAbove;
 
     private static GameObject BBarrel;
 
@@ -174,7 +176,7 @@ public class Boss : MonoBehaviour
      public void Move()
         {
             Flip();
-            Debug.Log("Speed" + speed);
+            //Debug.Log("Speed" + speed);
         // If Enemy didn't reach last waypoint it can move
         // If enemy reached last waypoint then it stops
         animator.SetBool("IsMoving", true);
@@ -248,33 +250,36 @@ public class Boss : MonoBehaviour
         InAgro = true;
         animator.SetBool("IsMoving", true);
         canMove = false;
-
-        transform.position = Vector3.MoveTowards(transform.position,
-                   player.position,
-                   speed * Time.deltaTime);
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        rb.velocity = new Vector2(direction.x, direction.y) * speed;
+        //transform.position = Vector3.MoveTowards(transform.position,
+        //           player.position,
+        //           speed * Time.deltaTime);
 
         }
-        //public void StopAgro(){
-            //LookAtPlayer();
-          //  speed = 0;
-           // Debug.Log(rb.velocity);
-      //  }
+    
         public void Attack(){
         // Debug.Log("Attacked");
         //LookAtPlayer();
         InAgro = false;
         //Debug.Log("In Attack");
         speed = 0;
+        rb.velocity = Vector2.zero;
         animator.SetTrigger("Attack");
         animator.SetBool("IsMoving", false);
         _waiting2 = true;
         hasAttacked = true;
 
         hitPlayer = Physics2D.OverlapCircleAll(AttackPointRight.position, attackRange, playerLayer);
+       // hitPlayerAbove = Physics2D.OverlapCircleAll(AttackPointUp.position, attackRange/2, playerLayer);
         foreach (Collider2D p in hitPlayer)
         {
-            p.GetComponent<playermovement>().Invoke("TakeDamage", 0.7f);
+            p.GetComponent<playermovement>().Invoke("TakeDamage", 0.5f);
         }
+        //foreach (Collider2D p in hitPlayerAbove)
+        //{
+        //    p.GetComponent<playermovement>().Invoke("TakeDamage", 0.5f);
+        //}
     }
     public void TakeDamage(int dmg)
     {
@@ -300,6 +305,7 @@ public class Boss : MonoBehaviour
     }
     public void Fix(){
         Flip();
+        animator.SetBool("IsMoving", true);
         dmgwaiting = true;
         float dist = Vector2.Distance(transform.position, BBarrel.transform.position);
         // Debug.Log("BBarrel = " + BBarrel.transform.position);
@@ -341,6 +347,7 @@ public class Boss : MonoBehaviour
             return;
         
         Gizmos.DrawWireSphere(AttackPointRight.position, attackRange);
+      //  Gizmos.DrawWireSphere(AttackPointUp.position, attackRange/2);
       
     }
     public int getHealth()
