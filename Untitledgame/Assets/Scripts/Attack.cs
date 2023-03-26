@@ -23,7 +23,6 @@ public class Attack : MonoBehaviour
     private playermovement pm;
     private Collider2D[] hitEnemies;
     private Collider2D[] hitItems;
-    // public Transform player;
     private int AttackDmg = 2;
     private int BarrelDmg = 5;
 
@@ -35,24 +34,17 @@ public class Attack : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         pm = player.GetComponent<playermovement>();
-       att = controls.Player.Attack;
-       att.Enable(); 
-       att.performed += Attacks;
-        
-
-       
+        att = controls.Player.Attack;
+        att.Enable(); 
+        att.performed += Attacks;
     }
     void OnDisable() {
        att.Disable();
-        //Debug.Log(att);
     }
     void Attacks(InputAction.CallbackContext context){
         animator.SetTrigger("Attack");
         LastX = pm.LastX;
         LastY = pm.LastY;
-        //Debug.Log(LastX);
-        //Debug.Log(LastY);
-        
         if (LastX == 1 && LastY == 0)
         {
            hitEnemies = Physics2D.OverlapCircleAll(AttackPointRight.position, attackRange, enemyLayer);

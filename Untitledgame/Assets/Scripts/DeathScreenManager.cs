@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DeathScreenManager : MonoBehaviour
 {
@@ -13,51 +14,44 @@ public class DeathScreenManager : MonoBehaviour
     private float y;
     private float z;
     public GameObject spawn;
-
-    //public GameObject Checkpoint;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Died(){
-        DeathScreen.SetActive(true);
-        var BossClone = GameObject.FindGameObjectsWithTag("Boss");
-        foreach (var bar in BossClone)
+        if (Player.GetComponent<playermovement>().getHealth() == 0 && Player.GetComponent<playermovement>().getIsBossAlive())
         {
-            bar.GetComponent<Boss>().enabled = false;
+            DeathScreen.SetActive(true);
+            var BossClone = GameObject.FindGameObjectsWithTag("Boss");
+            foreach (var bar in BossClone)
+            {
+                bar.GetComponent<Boss>().enabled = false;
+            }
+
+            Player.GetComponent<playermovement>().animator.SetFloat("Speed", 0);
+            Player.GetComponent<playermovement>().enabled = false;
+            Player.GetComponent<PlayerInput>().enabled = false;
+            Player.GetComponent<Attack>().enabled = false;
+            var Barrels = GameObject.FindGameObjectsWithTag("Barrel");
+            var BrokenBarrel = GameObject.FindGameObjectsWithTag("BrokenBarrel");
+            var HalfBrokenBarrel = GameObject.FindGameObjectsWithTag("HalfBrokenBarrel");
+            foreach (var bar in Barrels)
+            {
+                Destroy(bar);
+            }
+            foreach (var bar in BrokenBarrel)
+            {
+                Destroy(bar);
+            }
+            foreach (var bar in HalfBrokenBarrel)
+            {
+                Destroy(bar);
+            }
         }
-        
-        Player.GetComponent<playermovement>().animator.SetFloat("Speed",0);
-        Player.GetComponent<playermovement>().enabled = false;
-        var Barrels = GameObject.FindGameObjectsWithTag ("Barrel");
-        var BrokenBarrel = GameObject.FindGameObjectsWithTag ("BrokenBarrel");
-        var HalfBrokenBarrel = GameObject.FindGameObjectsWithTag ("HalfBrokenBarrel");
-        foreach (var bar in Barrels)
-        {
-            Destroy(bar);
-        }
-        foreach (var bar in BrokenBarrel)
-        {
-            Destroy(bar);
-        }
-        foreach (var bar in HalfBrokenBarrel)
-        {
-            Destroy(bar);
-        }
-        
     }
     public void Retry(){
         DeathScreen.SetActive(false);
         pos = Checkpoint.GetComponent<CheckPointSaved>().pos;
         Player.GetComponent<playermovement>().respawnPlayer(pos);
         Player.GetComponent<playermovement>().enabled = true;
+        Player.GetComponent<PlayerInput>().enabled = true;
+        Player.GetComponent<Attack>().enabled = true;
         var BossClone = GameObject.FindGameObjectsWithTag("Boss");
         foreach (var bar in BossClone)
         {
@@ -65,7 +59,6 @@ public class DeathScreenManager : MonoBehaviour
         }
         spawn.GetComponent<Spawn>().SpawnAgain();
         StartCoroutine(BossSpawn());
-        //Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation); 
 
     }
     IEnumerator BossSpawn()
@@ -73,9 +66,6 @@ public class DeathScreenManager : MonoBehaviour
     yield return new WaitForSeconds(0.5f);
     Player.GetComponent<playermovement>().resetHealth();
     yield return new WaitForSeconds(2);
-    Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation); 
-   
-   
-
+    Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation);
 }
 }

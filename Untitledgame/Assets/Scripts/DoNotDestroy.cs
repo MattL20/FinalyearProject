@@ -14,9 +14,5 @@ public class DoNotDestroy : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        //if (SceneManager.GetActiveScene().name == "Game")
-        //{
-        //    musicObj[0].GetComponent<Time>() = 0f;
-        //}
     }
 }

@@ -41,27 +41,24 @@ public class EnemyTextBoxManager : MonoBehaviour
             DisableTextBox();
         }
     }
-
     // Update is called once per frame
     void Update()
     {
         if(!isActive){
             return;
         }else{
-     //theText.text = lines[currentLine]; 
-     if(moveOn) {
-        if(!isTyping){
-            currentLine = currentLine + 1;
-
-            if(currentLine>endLine){
-                DisableTextBox();
-            } else{
-                StartCoroutine(TextScroll(lines[currentLine]));
+         if(moveOn) {
+            if(!isTyping){
+                currentLine = currentLine + 1;
+                if(currentLine>endLine){
+                    DisableTextBox();
+                } else{
+                    StartCoroutine(TextScroll(lines[currentLine]));
+                }
+            }else if(isTyping&&!interuptTyping){
+                interuptTyping = true;
             }
-        }else if(isTyping&&!interuptTyping){
-            interuptTyping = true;
-        }
-     }
+         }
         }
     }
     private IEnumerator TextScroll(string lineOfText){

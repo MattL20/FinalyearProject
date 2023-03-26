@@ -17,15 +17,8 @@ public class HalfBrokenBarrel : MonoBehaviour
         this.BrokenBarrel.transform.position = transform.position;
         currentHealth = maxHealth;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void TakeDamage(int dmg)
     {
-        //Debug.Log("this.HalfBrokenBarrel = " + this.transform.position);
         currentHealth -= dmg;
         if (currentHealth > 0)
         {
@@ -33,9 +26,7 @@ public class HalfBrokenBarrel : MonoBehaviour
         }
         if (currentHealth<=0){
             Instantiate(this.BrokenBarrel,this.HalfBarrel.transform.position, this.HalfBarrel.transform.rotation);
-            //Debug.Log("HELP = " + this.BrokenBarrel.transform.position);
             Boss.GetComponent<Boss>().setBarrel(this.BrokenBarrel);
-            
             Destroy(HalfBarrel);
         }
     }

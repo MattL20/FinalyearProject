@@ -12,15 +12,12 @@ public class HealthBarManager : MonoBehaviour
     private void Awake()
     {
         SetMaxHealth();
-       
     }
     private void Update()
     {
         SetHealth();
-        
         if(BossOrPlayer.name == "OCD_Monster")
         {
-           
             if (BossOrPlayer.GetComponent<Boss>().getHealth() == 0 && BossOrPlayer.GetComponent<Boss>().getIsPlayerAlive())
             {
                 StartCoroutine(winScreen());
@@ -60,7 +57,6 @@ public class HealthBarManager : MonoBehaviour
         }
         else if (BossOrPlayer.name == "OCD_Monster")
         {
-            //Debug.Log("In Here");
             current = BossOrPlayer.GetComponent<Boss>().getHealth();
             HealthBar.slider.value = current;
         }

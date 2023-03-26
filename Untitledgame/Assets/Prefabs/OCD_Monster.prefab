@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1765494662964728163}
   - component: {fileID: 1765494662964728162}
   - component: {fileID: 1765494662964728173}
+  - component: {fileID: 1765494662964728175}
   - component: {fileID: 1765494662964728172}
   - component: {fileID: 1765494662964728174}
-  - component: {fileID: 1765494662964728175}
   - component: {fileID: 3592776491334620915}
   m_Layer: 22
   m_Name: OCD_Monster
@@ -112,6 +112,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &1765494662964728175
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765494662964728161}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004207555, y: 0.014672756}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8752137, y: 0.7876923}
+    newSize: {x: 0.27, y: 0.42}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15331039, y: 0.42398107}
+  m_EdgeRadius: 0
 --- !u!95 &1765494662964728172
 Animator:
   serializedVersion: 4
@@ -183,32 +209,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1048576
---- !u!61 &1765494662964728175
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765494662964728161}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0015411675, y: -0.0058022365}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8752137, y: 0.7876923}
-    newSize: {x: 0.27, y: 0.42}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.120677345, y: 0.38303107}
-  m_EdgeRadius: 0
 --- !u!82 &3592776491334620915
 AudioSource:
   m_ObjectHideFlags: 0

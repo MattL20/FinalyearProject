@@ -47,7 +47,6 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("FollowSpeed  " + FollowSpeed);
         if(camMove){
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, new Vector3(-1, 18, -10), FollowSpeed * Time.deltaTime);
         }
@@ -57,11 +56,9 @@ public class Spawn : MonoBehaviour
         Camera.GetComponent<CameraFollow>().enabled = false;
         Player.GetComponent<playermovement>().animator.SetFloat("Speed",0);
         Player.GetComponent<playermovement>().enabled = false;
-        
         StartCoroutine(WaitForFunction());
         camMove = true;
         state = State.Active;
-       // Debug.Log("Everything Spawned");
     }
     IEnumerator WaitForFunction()
 {
@@ -83,6 +80,5 @@ public void SpawnAgain(){
         Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[16].position, Barrels.transform.rotation);
         Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[19].position, Barrels.transform.rotation);
         Instantiate(Barrels, Boss.GetComponent<Boss>().waypoints[22].position, Barrels.transform.rotation);
-       // Instantiate(Boss, new Vector3(-1, 18, 0), Boss.transform.rotation); 
 }
 }
