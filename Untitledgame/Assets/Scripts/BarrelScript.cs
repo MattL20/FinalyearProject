@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class BarrelScript : MonoBehaviour
 {
+    //Max health and current health variables
     public int maxHealth;
     public int currentHealth;
     public GameObject Barrel;
     public GameObject HalfBrokenBarrel;
     public AudioSource punch;
+    //Set this barrel position as the objects position
     void Start()
     {
         this.Barrel.transform.position = transform.position;
         maxHealth = 60;
         currentHealth = maxHealth;
     }
+    //Take in a damage value and take it from the health 
+    //if health reaches a certain value destroy this barrel
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
@@ -27,6 +31,7 @@ public class BarrelScript : MonoBehaviour
             Destroy(Barrel);
         }
     }
+    // when destroyed instantiate a halfbrokenbarrel to the posistion of the barrel destroyed
     private void OnDestroy() {
          Instantiate(HalfBrokenBarrel,Barrel.transform);
     }

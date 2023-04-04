@@ -4,37 +4,45 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
-
+//Controls the text inside the enemy text box
 public class EnemyTextBoxManager : MonoBehaviour
 {
+    //Reference to the textbox game object
     public GameObject TextBox;
+    //Refernce to the text inside the text box component
     public TMP_Text theText;
-    public TextAsset textFile;
-    public string[] lines;
+    public TextAsset textFile;// the Dialogue script
+    public string[] lines;//An array that holds all dialogue line by line
+    //Current Line 
     public int currentLine = 0;
+    //End line
     public int endLine = 0;
+    //Reference to the player
     public GameObject player;
-
+    //If the textbox is active
     public bool isActive;
-
+    //used to stop the player when the text is active
     public bool stopPlayer;
-
+    //Used to create the typing effect in the text box
     private bool isTyping = false;
     private bool interuptTyping = false;
 
     private bool moveOn = false;
-
+    //speed at whic the text is typed
     public float typeSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        //Stop the player movement
         player.GetComponent<playermovement>().enabled = false;
+        //split up the dialogue by lines
         if (textFile != null){
             lines = (textFile.text.Split("\n"));
         }
        if(endLine==0){
             endLine = lines.Length - 1;
         }
+       //enable/disable the textbox
         if(isActive){
             EnableTextBox();
         }else{
@@ -47,6 +55,7 @@ public class EnemyTextBoxManager : MonoBehaviour
         if(!isActive){
             return;
         }else{
+            //Used to move the dialogue on without player input
          if(moveOn) {
             if(!isTyping){
                 currentLine = currentLine + 1;
@@ -61,6 +70,7 @@ public class EnemyTextBoxManager : MonoBehaviour
          }
         }
     }
+    //creates the typing effect
     private IEnumerator TextScroll(string lineOfText){
         int letter = 0;
         theText.text = "";
@@ -79,15 +89,17 @@ public class EnemyTextBoxManager : MonoBehaviour
         isTyping = false;
         interuptTyping = false;
     }
+    //what to do when the text box is enabled
     public void EnableTextBox(){
         TextBox.SetActive(true);
         isActive = true;
         if(stopPlayer){
-            player.GetComponent<playermovement>().animator.SetFloat("Speed",0);
+            player.GetComponent<playermovement>().animator.SetFloat("Speed",0);//stop all player movemment
             player.GetComponent<playermovement>().enabled = false;
             player.GetComponent<PlayerInput>().enabled = false;
             player.GetComponent<Attack>().enabled = false;
         }
+        //start the text typing out
         StartCoroutine(TextScroll(lines[currentLine]));
     }
     public void DisableTextBox(){
@@ -101,13 +113,14 @@ public class EnemyTextBoxManager : MonoBehaviour
         }
 
     }
-
+    //reset the dialogue if game is played agin without closing
     public void ReloadScript(TextAsset newText){
         if(newText!= null){
             lines = new string[1];
             lines = (newText.text.Split("\n"));
         }
     }
+    //change the music after 10 seconds
     public void musicChange()
     {
         StartCoroutine(musicDelay());
@@ -117,6 +130,7 @@ public class EnemyTextBoxManager : MonoBehaviour
         yield return new WaitForSeconds(10);
         player.GetComponent<playermovement>().bossMusicStart();
     }
+    //allow the player to move again
     public void AllowMove()
     {
         player.GetComponent<PlayerInput>().enabled = true;

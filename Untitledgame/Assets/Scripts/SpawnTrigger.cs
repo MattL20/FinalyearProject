@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpawnTrigger : MonoBehaviour
 {
+    //controls when the player enters the spawn trigger area and the calls the spawning of the boss
     public event EventHandler OnPlayerEnterTrigger;
     private void OnTriggerEnter2D(Collider2D collider) {
         playermovement player = collider.GetComponent<playermovement>();

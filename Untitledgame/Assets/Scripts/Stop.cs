@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//attached to the attacking animation for the player
+//slows the player movement when attacking
 public class Stop : StateMachineBehaviour
 {
     GameObject player;

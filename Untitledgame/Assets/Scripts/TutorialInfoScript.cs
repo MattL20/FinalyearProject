@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//comtrols the showing of the tutorial information UI
 public class TutorialInfoScript : MonoBehaviour
 {
     public GameObject TutorialCanvas;

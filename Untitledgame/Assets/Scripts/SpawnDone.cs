@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//on the boss spawn animation, stops movement during the animation and then allows it when the boss is done spawning
 public class SpawnDone : StateMachineBehaviour
 {
     GameObject Boss;

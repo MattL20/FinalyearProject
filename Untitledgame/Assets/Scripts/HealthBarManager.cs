@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//used to control the health bar 
 public class HealthBarManager : MonoBehaviour
 {
     public GameObject BossOrPlayer;
@@ -9,13 +10,16 @@ public class HealthBarManager : MonoBehaviour
     private int max;
     private int current;
     public GameObject winningScreen; 
+    //set the max health of the health bar.
     private void Awake()
     {
         SetMaxHealth();
     }
+    //set the health each frame
     private void Update()
     {
         SetHealth();
+        //if the boss dies and the player is alive show the win screen
         if(BossOrPlayer.name == "OCD_Monster")
         {
             if (BossOrPlayer.GetComponent<Boss>().getHealth() == 0 && BossOrPlayer.GetComponent<Boss>().getIsPlayerAlive())
@@ -24,13 +28,14 @@ public class HealthBarManager : MonoBehaviour
             }
         }
     }
+    //wait a second and then stop everything in game and activate the win screen
     IEnumerator winScreen()
     {
         yield return new WaitForSeconds(1);
         Time.timeScale = 0f;
         winningScreen.SetActive(true);
     }
-
+    //setting the max health what ever character the health bar is on
     public void SetMaxHealth()
     { 
         if(BossOrPlayer.name == "Player")
@@ -47,6 +52,7 @@ public class HealthBarManager : MonoBehaviour
         }
         HealthBar.fill.color = HealthBar.gradient.Evaluate(1f);
     }
+    //setting the health what ever character the health bar is on
     public void SetHealth()
     {
         if (BossOrPlayer.name == "Player")

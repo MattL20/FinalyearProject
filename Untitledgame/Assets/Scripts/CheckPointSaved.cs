@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Saves the position of the player at a checkpoint so they can retry the game if they die
 public class CheckPointSaved : MonoBehaviour
 {
     public GameObject Player;

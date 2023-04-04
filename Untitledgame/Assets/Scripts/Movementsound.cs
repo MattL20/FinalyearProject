@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Attached to the player movement animations, plays the walking sound effect during the walking animation
 public class Movementsound : StateMachineBehaviour
 {
     public AudioSource walking;

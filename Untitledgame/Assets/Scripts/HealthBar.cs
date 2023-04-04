@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Controls the health bar UI
     public Slider slider;
     public Gradient gradient;
     public Image fill;
+    //sets the max health  to fill the health bar
     public void SetMaxHealth(int max)
     {
         this.slider.maxValue = max;
         this.slider.value = max;
         this.fill.color = gradient.Evaluate(1f);
     }
+    //used to adjust the health as damage is taken
     public void SetHealth(int health)
     {
         Debug.Log(health);
